@@ -23,6 +23,7 @@
     "test:preload": "vitest run -r packages/preload --passWithNoTests",
     "test:renderer": "vitest run -r packages/renderer --passWithNoTests",
     "watch": "chcp 65001 && node scripts/watch.mjs",
+    "watch:mac": "node scripts/watch.mjs",
     "lint": "eslint . --ext js,mjs,cjs,ts,mts,cts,vue",
     "typecheck:main": "tsc --noEmit -p packages/main/tsconfig.json",
     "typecheck:preload": "tsc --noEmit -p packages/preload/tsconfig.json",
@@ -105,6 +106,7 @@
     "sqlite3": "5.1.6",
     "user-agents": "^1.1.148",
     "winston": "^3.11.0",
-    "xlsx": "^0.19.3"
-  }
+    "xlsx": "^0.18.3"
+  },
+  "__npminstall_done": false
 }
