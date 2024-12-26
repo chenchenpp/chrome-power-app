@@ -45,7 +45,7 @@ const WindowDetailFooter = ({
     ).then(() => {
       setSaving(false);
       if (result.success) {
-        navigate('/');
+        navigate('/windows');
       }
     });
   };

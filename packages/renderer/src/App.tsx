@@ -1,4 +1,4 @@
-import {Route, Routes, useLocation} from 'react-router-dom';
+import {Navigate, Route, Routes, useLocation} from 'react-router-dom';
 import Navigation from './components/navigation';
 
 import dayjs from 'dayjs';
@@ -8,6 +8,8 @@ import './styles/antd.css';
 import {Layout, Typography, message} from 'antd';
 import {useRoutes, useRoutesMap} from './routes';
 import Header from './components/header';
+import LayoutRoute from './components/layout';
+import Start from './pages/login';
 import {useEffect, useState} from 'react';
 import {CommonBridge} from '#preload';
 import {MESSAGE_CONFIG} from './constants';
@@ -24,7 +26,6 @@ const App = () => {
   const routesMap = useRoutesMap();
   const [isVisible, setIsVisible] = useState(false);
   const [messageApi, contextHolder] = message.useMessage(MESSAGE_CONFIG);
-
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // 延迟显示组件
@@ -50,15 +51,33 @@ const App = () => {
   }, []);
 
   return (
+    // <Routes>
+    //   <Route path='/login' index Component={Start}></Route>
+    //   <Route
+    //     path="/"
+    //     Component={LayoutRoute}
+    //   >
+    //     {routes.map(route => {
+    //       return (
+    //         <Route
+    //           key={route.path}
+    //           path={route.path}
+    //           Component={route.component}
+    //         />
+    //       );
+    //     })}
+    //   </Route>
+    //   <Route path='/' element={<Navigate to="/login"></Navigate>}></Route>
+    // </Routes>
     <Layout className={`h-full fade-in ${isVisible ? 'visible' : ''}`}>
       {contextHolder}
       {/* <Spin
         spinning={loading}
         rootClassName={loading ? 'fullscreen-spin-wrapper visible' : ''}
       /> */}
-      {location.pathname !== '/start' && <Header></Header>}
+      <Header></Header>
       <Layout>
-        {location.pathname !== '/start' && (
+        {location.pathname !== '/' && (
           <Sider
             width={164}
             className="sider"

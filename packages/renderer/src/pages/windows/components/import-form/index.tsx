@@ -39,7 +39,7 @@ const WindowImportForm = () => {
           .then(() => {
             setLoading(false);
             if (result.data.length > 0) {
-              navigate('/');
+              navigate('/windows');
             }
           });
       } catch (error) {

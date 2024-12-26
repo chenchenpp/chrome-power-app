@@ -9,7 +9,7 @@ import {Icon} from '@iconify/react';
 import {useMemo, type ReactElement} from 'react';
 import {useTranslation} from 'react-i18next';
 import Logs from '../pages/logs';
-import Start from '../pages/start';
+import Login from '../pages/login';
 import Api from '../pages/api';
 
 interface RouteOption {
@@ -27,6 +27,11 @@ export const useRoutes = () => {
     return [
       {
         path: '/',
+        component: () => <Login />,
+        invisible: true,
+      },
+      {
+        path: '/windows',
         name: t('menu_windows'),
         icon: <Icon icon="bx:windows" />,
         component: Windows,
@@ -61,29 +66,25 @@ export const useRoutes = () => {
       //   icon: <Icon icon="ic:outline-sync" />,
       //   component: Sync,
       // },
-      {
-        path: '/logs',
-        name: t('menu_logs'),
-        icon: <Icon icon="carbon:flow-logs-vpc" />,
-        component: Logs,
-      },
+      // {
+      //   path: '/logs',
+      //   name: t('menu_logs'),
+      //   icon: <Icon icon="carbon:flow-logs-vpc" />,
+      //   component: Logs,
+      // },
       {
         path: '/settings',
         name: t('menu_settings'),
         icon: <Icon icon="material-symbols:settings-outline" />,
         component: Settings,
       },
-      {
-        path: '/api',
-        name: t('menu_api'),
-        icon: <Icon icon="ant-design:api-outlined" />,
-        component: Api,
-      },
-      {
-        path: '/start',
-        component: () => <Start />,
-        invisible: true,
-      },
+      // {
+      //   path: '/api',
+      //   name: t('menu_api'),
+      //   icon: <Icon icon="ant-design:api-outlined" />,
+      //   component: Api,
+      // },
+
     ];
   }, [i18n.language]);
 };
